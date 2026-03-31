@@ -7,7 +7,7 @@ def add_todo():
     todo=st.session_state["new_todo"]
     todos.append(todo+"\n")
     functions.write_todos(todos)
-    st.session_state["new_todo"] = ""
+
 
 
 st.title("My Todo App")
@@ -20,6 +20,7 @@ for index,todo in enumerate(todos):
     if checkbox:
         todos.pop(index)
         functions.write_todos(todos)
+        st.session_state["new_todo"] = ""
 
 
 st.text_input(label="add new todo...",
